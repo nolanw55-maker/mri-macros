@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Spine MRI Reporting Macros</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Spine MRI Reporting Macros</h1>
+</header>
+<h1 id="mri-spine-reporting-macros">MRI SPINE REPORTING MACROS</h1>
+<p>Document type: reporting macro library<br />
+Modality: MRI<br />
+Region: spine<br />
+Keywords: MRI spine macros, spine reporting template, normal spine MRI
+report</p>
+<h2 id="how-to-use-this-page">HOW TO USE THIS PAGE</h2>
+<p>When the user enters an examination keyword (for example “lumbar
+spine”, “cervical spine”), locate the matching section below and return
+the FINDINGS and CONCLUSION text for that section verbatim, unless the
+user supplies abnormal findings. If the user supplies abnormal findings,
+keep the template structure and the untouched normal statements, and
+replace only the relevant sentences.</p>
+<p>Do not invent levels, measurements or laterality. If a value is
+required and has not been supplied, insert a placeholder in square
+brackets, for example [L4/5].</p>
+<p>All macro output is a draft only. The reporting radiologist must
+verify every statement against the images before the report is
+issued.</p>
+<h2 id="reporting-rules-apply-to-every-macro-on-this-page">REPORTING
+RULES (apply to every macro on this page)</h2>
+<p>RULE 1 — When an examination keyword is entered alone, return the
+matching normal template below in full. Do not ask clarifying questions
+first; return the draft, then invite corrections.</p>
+<p>RULE 2 — When abnormal findings are supplied, keep the template
+structure and retain every normal statement that has not been
+contradicted. Replace only the affected sentences and update the
+conclusion.</p>
+<p>RULE 3 — Never invent measurements, laterality, spinal levels, PSA
+values, dates, clinical history or comparison studies. Insert a
+square-bracket placeholder such as [X] mm or [left/right] instead.</p>
+<p>RULE 4 — Report order: CLINICAL, TECHNIQUE, COMPARISON, FINDINGS,
+CONCLUSION. Omit sections not supplied. Findings are continuous prose,
+not bullet points.</p>
+<p>RULE 5 — UK English spelling throughout: haemorrhage, oedema,
+visualised, tumour, calibre.</p>
+<p>RULE 6 — The conclusion answers the clinical question and does not
+repeat the findings.</p>
+<p>RULE 7 — Every draft is a draft only. The reporting radiologist must
+verify each statement against the images before the report is
+issued.</p>
+<p>RULE 8 — If no macro exists for the examination requested, say so and
+offer a generic structured template rather than improvising from
+memory.</p>
+<hr />
+<h2 id="cervical-spine">CERVICAL SPINE</h2>
+<p>Trigger: cervical spine<br />
+Keywords: cervical spine, C spine, neck MRI, cervical radiculopathy,
+myelopathy</p>
+<p>FINDINGS</p>
+<p>Normal cervical lordosis with normal vertebral alignment. Vertebral
+body height and marrow signal are preserved throughout, with no
+fracture, marrow oedema or destructive lesion. The intervertebral discs
+demonstrate normal height and signal. There is no disc herniation,
+central canal stenosis or neural foraminal narrowing from C2/3 to C7/T1.
+The facet and uncovertebral joints are unremarkable. The spinal cord is
+of normal calibre and signal throughout its visualised length, with no
+intramedullary lesion and no cord compression. The craniocervical
+junction is normal. The prevertebral and paraspinal soft tissues are
+unremarkable.</p>
+<p>CONCLUSION</p>
+<p>Normal MRI of the cervical spine. No disc herniation, canal stenosis,
+foraminal narrowing or cord compression.</p>
+<p>Key negatives: no disc herniation; no canal stenosis; no foraminal
+narrowing; normal cord signal; no marrow lesion.</p>
+<hr />
+<h2 id="thoracic-spine">THORACIC SPINE</h2>
+<p>Trigger: thoracic spine<br />
+Keywords: thoracic spine, T spine, dorsal spine, mid back</p>
+<p>FINDINGS</p>
+<p>Normal thoracic kyphosis with normal vertebral alignment. Vertebral
+body height and marrow signal are preserved from T1 to T12, with no
+fracture, marrow oedema or destructive lesion. The intervertebral discs
+demonstrate normal height and signal, with no disc herniation. No
+central canal stenosis or neural foraminal narrowing at any level. The
+costovertebral and facet joints are unremarkable. The spinal cord is of
+normal calibre and signal throughout, with no intramedullary lesion and
+no cord compression. No epidural mass or collection. The paraspinal soft
+tissues and visualised posterior mediastinum are unremarkable.</p>
+<p>CONCLUSION</p>
+<p>Normal MRI of the thoracic spine. No disc herniation, canal stenosis
+or cord compression.</p>
+<p>Key negatives: no disc herniation; no canal stenosis; normal cord
+signal; no marrow lesion; no epidural collection.</p>
+<hr />
+<h2 id="lumbar-spine">LUMBAR SPINE</h2>
+<p>Trigger: lumbar spine<br />
+Keywords: lumbar spine, L spine, low back pain, sciatica, LBP</p>
+<p>FINDINGS</p>
+<p>Five lumbar type vertebrae are present with normal segmentation.
+Normal lumbar lordosis and vertebral alignment, with no
+spondylolisthesis. Vertebral body height and marrow signal are
+preserved, with no fracture, Modic change or destructive lesion. The
+intervertebral discs demonstrate normal height and signal, with no disc
+bulge, protrusion or extrusion. The central canal, lateral recesses and
+neural foramina are patent at all levels from L1/2 to L5/S1, with no
+nerve root compression. The facet joints are unremarkable and the
+ligamentum flavum is of normal thickness. The conus medullaris
+terminates at the L1 level and is normal in signal and calibre. The
+cauda equina nerve roots are normally distributed with no clumping or
+enhancement. The sacroiliac joints and paraspinal soft tissues are
+unremarkable.</p>
+<p>CONCLUSION</p>
+<p>Normal MRI of the lumbar spine. No disc herniation, canal or
+foraminal stenosis, and no nerve root compression.</p>
+<p>Key negatives: no disc herniation; no canal stenosis; no foraminal
+stenosis; no nerve root compression; normal conus position and
+signal.</p>
+<hr />
+<h2 id="whole-spine">WHOLE SPINE</h2>
+<p>Trigger: whole spine<br />
+Keywords: whole spine, cord compression, MSCC, metastatic spinal cord
+compression, cauda equina syndrome, screening spine</p>
+<p>FINDINGS</p>
+<p>Sagittal imaging of the whole spine from the craniocervical junction
+to the sacrum. Normal vertebral alignment throughout. Bone marrow signal
+is normal and uniform, with no focal deposit, marrow replacement or
+pathological fracture. No vertebral body collapse. Degenerative change
+is [absent / mild and age-appropriate], with no significant disc
+herniation. There is no epidural mass, collection or abnormal soft
+tissue. The spinal cord is of normal calibre and signal throughout, with
+no intramedullary lesion and no cord compression at any level. The conus
+medullaris terminates at the L1 level. The cauda equina nerve roots are
+normal, with no compression or clumping. The paraspinal soft tissues are
+unremarkable.</p>
+<p>CONCLUSION</p>
+<p>No evidence of metastatic spinal cord compression. No vertebral
+metastatic deposit. No cauda equina compression.</p>
+<p>Key negatives: normal marrow signal; no deposit or pathological
+fracture; no epidural mass; no cord or cauda equina compression.</p>
+</body>
+</html>

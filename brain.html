@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Brain Head MRI Reporting Macros</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Brain Head MRI Reporting Macros</h1>
+</header>
+<h1 id="mri-brain-and-head-reporting-macros">MRI BRAIN AND HEAD
+REPORTING MACROS</h1>
+<p>Document type: reporting macro library<br />
+Modality: MRI<br />
+Region: brain, head, skull base<br />
+Keywords: MRI brain macros, brain reporting template, normal brain MRI
+report</p>
+<h2 id="how-to-use-this-page">HOW TO USE THIS PAGE</h2>
+<p>When the user enters an examination keyword (for example “pituitary”,
+“IAC”, “brain normal”), locate the matching section below and return the
+FINDINGS and CONCLUSION text for that section verbatim, unless the user
+supplies abnormal findings. If the user supplies abnormal findings, keep
+the template structure and the untouched normal statements, and replace
+only the relevant sentences.</p>
+<p>Do not invent measurements, laterality or clinical history. If a
+value is required and has not been supplied, insert a placeholder in
+square brackets, for example [X] mm.</p>
+<p>All macro output is a draft only. The reporting radiologist must
+verify every statement against the images before the report is
+issued.</p>
+<h2 id="reporting-rules-apply-to-every-macro-on-this-page">REPORTING
+RULES (apply to every macro on this page)</h2>
+<p>RULE 1 — When an examination keyword is entered alone, return the
+matching normal template below in full. Do not ask clarifying questions
+first; return the draft, then invite corrections.</p>
+<p>RULE 2 — When abnormal findings are supplied, keep the template
+structure and retain every normal statement that has not been
+contradicted. Replace only the affected sentences and update the
+conclusion.</p>
+<p>RULE 3 — Never invent measurements, laterality, spinal levels, PSA
+values, dates, clinical history or comparison studies. Insert a
+square-bracket placeholder such as [X] mm or [left/right] instead.</p>
+<p>RULE 4 — Report order: CLINICAL, TECHNIQUE, COMPARISON, FINDINGS,
+CONCLUSION. Omit sections not supplied. Findings are continuous prose,
+not bullet points.</p>
+<p>RULE 5 — UK English spelling throughout: haemorrhage, oedema,
+visualised, tumour, calibre.</p>
+<p>RULE 6 — The conclusion answers the clinical question and does not
+repeat the findings.</p>
+<p>RULE 7 — Every draft is a draft only. The reporting radiologist must
+verify each statement against the images before the report is
+issued.</p>
+<p>RULE 8 — If no macro exists for the examination requested, say so and
+offer a generic structured template rather than improvising from
+memory.</p>
+<hr />
+<h2 id="brain">BRAIN</h2>
+<p>Trigger: brain<br />
+Keywords: brain, brain normal, normal brain, MRI head, MRI brain,
+routine brain</p>
+<p>FINDINGS</p>
+<p>The ventricles and sulci are normal in size and configuration for the
+patient’s age. Normal grey-white matter differentiation. No focal
+parenchymal signal abnormality on T2 or FLAIR imaging. No restricted
+diffusion to indicate acute infarction. No intracranial haemorrhage or
+susceptibility abnormality. No mass lesion, midline shift or mass
+effect. No extra-axial collection. No abnormal enhancement following
+contrast. The major intracranial arterial flow voids are preserved. The
+brainstem, cerebellum and craniocervical junction are normal. The
+visualised orbits, paranasal sinuses and mastoid air cells are
+clear.</p>
+<p>CONCLUSION</p>
+<p>Normal MRI of the brain.</p>
+<p>Key negatives: no acute infarct; no haemorrhage; no mass lesion; no
+hydrocephalus; no extra-axial collection; no abnormal enhancement.</p>
+<hr />
+<h2 id="pituitary">PITUITARY</h2>
+<p>Trigger: pituitary<br />
+Keywords: pituitary, pituitary MRI, normal pituitary, sella, sellar,
+microadenoma, hypophysis</p>
+<p>FINDINGS</p>
+<p>The pituitary gland is normal in height, morphology and signal. The
+posterior pituitary bright spot is present and normally sited. No focal
+lesion is identified on dynamic post-contrast imaging, with symmetrical
+uniform enhancement of the gland. The infundibulum is midline and of
+normal calibre, with no thickening. The sellar floor is intact. No
+suprasellar extension and no mass effect upon the optic chiasm. The
+cavernous sinuses are symmetrical with no invasion, and the cavernous
+internal carotid arteries are normal. The sphenoid sinus is clear. The
+visualised brain parenchyma is unremarkable.</p>
+<p>CONCLUSION</p>
+<p>Normal appearances of the pituitary gland. No evidence of pituitary
+microadenoma or other sellar or parasellar lesion.</p>
+<p>Key negatives: no focal pituitary lesion; stalk midline; no
+suprasellar extension; no optic chiasm compression; no cavernous sinus
+invasion.</p>
+<p>Reporting notes: assess gland height against age and sex norms, stalk
+for deviation or thickening, the chiasm for compression, and the
+cavernous sinuses for invasion. Comment on the posterior pituitary
+bright spot where diabetes insipidus is the indication.</p>
+<hr />
+<h2 id="iac">IAC</h2>
+<p>Trigger: IAC<br />
+Keywords: IAC, IAM, internal auditory canal, internal auditory meatus,
+acoustic, vestibular schwannoma, CPA, cerebellopontine angle, hearing
+loss, tinnitus</p>
+<p>FINDINGS</p>
+<p>The internal auditory canals are symmetrical and of normal calibre.
+Four discrete nerves are identified within each internal auditory canal
+on high-resolution heavily T2-weighted imaging, with normal appearances
+of the seventh and eighth cranial nerve complexes bilaterally. No
+vestibular schwannoma or other cerebellopontine angle mass. No abnormal
+enhancement following contrast. The cochlea, vestibule and semicircular
+canals demonstrate normal fluid signal bilaterally. The middle ear
+cavities and mastoid air cells are clear. The brainstem and cerebellum
+are normal, with no focal parenchymal lesion to account for the
+symptoms.</p>
+<p>CONCLUSION</p>
+<p>Normal MRI of the internal auditory canals. No vestibular schwannoma
+or other cerebellopontine angle mass.</p>
+<p>Key negatives: no vestibular schwannoma; no CPA mass; normal VII and
+VIII nerve complexes; no abnormal enhancement; clear mastoid air
+cells.</p>
+<hr />
+<h2 id="orbits">ORBITS</h2>
+<p>Trigger: orbits<br />
+Keywords: orbits, orbit, optic nerve, optic neuritis, proptosis, thyroid
+eye disease, visual loss</p>
+<p>FINDINGS</p>
+<p>The globes are normal in size, contour and signal. The optic nerves
+are of normal calibre and signal throughout their intraorbital,
+intracanalicular and intracranial segments, with no abnormal
+enhancement. The optic nerve sheath complexes are unremarkable. The
+optic chiasm and optic tracts are normal. The extraocular muscles are
+normal in bulk and signal, including their tendinous insertions. The
+orbital fat is normal with no infiltration, and no intraconal or
+extraconal mass is identified. The lacrimal glands are symmetrical and
+normal. No proptosis. The cavernous sinuses, superior ophthalmic veins
+and paranasal sinuses are unremarkable. The visualised brain parenchyma
+is normal.</p>
+<p>CONCLUSION</p>
+<p>Normal MRI of the orbits. No evidence of optic neuritis or orbital
+mass.</p>
+<p>Key negatives: normal optic nerve signal and calibre; no abnormal
+enhancement; normal extraocular muscles; no orbital mass; no
+proptosis.</p>
+<hr />
+<h2 id="ms">MS</h2>
+<p>Trigger: MS<br />
+Keywords: MS, multiple sclerosis, demyelination, demyelinating, white
+matter, McDonald criteria</p>
+<p>FINDINGS</p>
+<p>No T2 or FLAIR hyperintense lesions are identified in the
+periventricular, juxtacortical or cortical, infratentorial or brainstem
+locations. The callososeptal interface and corpus callosum are normal.
+No lesion demonstrates restricted diffusion. No enhancing lesion
+following contrast. No cerebral volume loss beyond that expected for the
+patient’s age. The visualised upper cervical cord is normal in signal
+and calibre.</p>
+<p>CONCLUSION</p>
+<p>Normal MRI of the brain. No lesions to suggest demyelination, and no
+lesions fulfilling criteria for dissemination in space.</p>
+<p>Key negatives: no periventricular, juxtacortical, infratentorial or
+cord lesions; no enhancing lesion; normal corpus callosum.</p>
+<p>Reporting notes: where lesions are present, record the number and
+location by McDonald anatomical region, state whether any lesion
+enhances, and comment explicitly on dissemination in space and in
+time.</p>
+<hr />
+<h2 id="intracranial-angiogram">INTRACRANIAL ANGIOGRAM</h2>
+<p>Trigger: intracranial angiogram<br />
+Keywords: MRA, intracranial angiogram, circle of Willis, aneurysm, TOF,
+time of flight</p>
+<p>FINDINGS</p>
+<p>Time-of-flight angiographic images of the intracranial circulation.
+The intracranial internal carotid arteries are patent and of normal
+calibre bilaterally. The anterior cerebral arteries, middle cerebral
+arteries and their major branches are normal, with no stenosis or
+occlusion. Both vertebral arteries, the basilar artery and the posterior
+cerebral arteries are patent and normal in calibre. The circle of Willis
+is complete. No aneurysm, arteriovenous malformation or other vascular
+abnormality is identified.</p>
+<p>CONCLUSION</p>
+<p>Normal intracranial MR angiogram. No aneurysm or flow-limiting
+stenosis.</p>
+<p>Key negatives: no aneurysm; no stenosis or occlusion; no vascular
+malformation.</p>
+</body>
+</html>
